@@ -28,7 +28,9 @@ export class Dashboard {
         this.arrayRandom = Array.from(this.cardsArray, (val) => Math.floor(Math.random() * 40));
     }
 
-
+    /**
+     * get deck cards
+     */
     getDeckCards() {
         this._spinner.show();
         this.appService.getAllCards().subscribe(
@@ -37,6 +39,9 @@ export class Dashboard {
         );
     }
 
+    /**
+     * refresh cards on refresh button
+     */
     reArrangeCards() {
         this.getDeckCards();
         this.droppedHeartItems = [];
@@ -45,6 +50,10 @@ export class Dashboard {
         this.droppedClubItems = [];
     }
 
+    /**
+     * get cards success
+     * @param res
+     */
     getAllCardsSuccess(res) {
         this._spinner.hide();
         if (res.status < 0) {
@@ -61,7 +70,11 @@ export class Dashboard {
             this.toastr.error('Server error');
         }
     }
-    
+
+    /**
+     * event occurs when card is dropped in card pool
+     * @param data
+     */
     onCardDropToPool(data: any) {
         const cardData: any = data.dragData;
         const cardType: any = cardData.card_type;
@@ -98,6 +111,10 @@ export class Dashboard {
         }
     }
 
+    /**
+     * event occurs when card is dropped in card pool - Heart
+     * @param data
+     */
     onHeartCardDrop(data: any) {
         const cardData: any = data.dragData;
         const cardType: any = cardData.card_type;
@@ -110,6 +127,10 @@ export class Dashboard {
         }
     }
 
+    /**
+     * event occurs when card is dropped in card pool - Spade
+     * @param data
+     */
     onSpadeCardDrop(data: any) {
         const cardData: any = data.dragData;
         const cardType: any = cardData.card_type;
@@ -123,6 +144,10 @@ export class Dashboard {
 
     }
 
+    /**
+     * event occurs when card is dropped in card pool - Diamond
+     * @param data
+     */
     onDiamondCardDrop(data: any) {
         const cardData: any = data.dragData;
         const cardType: any = cardData.card_type;
@@ -135,6 +160,10 @@ export class Dashboard {
         }
     }
 
+    /**
+     * event occurs when card is dropped in card pool
+     * @param data
+     */
     onClubCardDrop(data: any) {
         const cardData: any = data.dragData;
         const cardType: any = cardData.card_type;

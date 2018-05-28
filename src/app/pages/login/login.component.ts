@@ -141,13 +141,6 @@ export class Login extends AppConstant {
                     self.appService.loginWithFacebook(signUpData).subscribe(
                         (next: any) => {
                             self.loginSuccess(next);
-                            // console.log(next,'dws');
-                            // // if (next) {
-                            // //     self._spinner.hide();
-                            // //     self.toastr.success('SignUp Successful. An email has been' +
-                            // //         ' sent to your email id. Please verify before sign in.');
-                            // //     self.router.navigate(['/login']);
-                            // // }
                          },
                         (Error: any ) => {
                             self._spinner.hide();

@@ -3,7 +3,6 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {Router}  from '@angular/router';
 import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 import {BaThemeSpinner} from '../../theme/services';
-import {EmailValidator, EqualPasswordsValidator} from '../../theme/validators';
 import {BlankSpaceValidator} from '../../theme/validators/blank.validator';
 import {AppConstant} from "../../app.constant";
 import {ApplicationAdminServices} from '../../appServices/application';
@@ -97,6 +96,10 @@ export class signUp extends AppConstant {
 
     }
 
+    /**
+     * function call when file changes from upload functionality.
+     * @param event
+     */
     onFileChange(event) {
         if (this.fileUploadArray.length <= 1) {
             const reader = new FileReader();
@@ -145,7 +148,6 @@ export class signUp extends AppConstant {
     }
 
     clearFile() {
-        // this.form.get('avatar').setValue(null);
         this.fileInput.nativeElement.value = '';
         this.fileUploadArray = [];
     }
