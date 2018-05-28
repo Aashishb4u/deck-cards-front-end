@@ -1,0 +1,40 @@
+
+<div class="profileContainer">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 row">
+            <button title="Refresh" (click)="reArrangeCards()" class="button-style form-control btn btn-primary" type="button"><i class="fa fa-refresh"></i></button>
+        </div>
+        <div (onDrop)="onCardDropToPool($event)" droppable class="deck-card-pool col-lg-12 col-md-12 col-sm-12 col-12 row">
+            <span  [dragData]="card"  class="deck_cards" draggable [dragClass]="'drag-target-border'" *ngFor="let card of cardsArray"><div>{{card.card_type}}</div><div>{{card.card_number}}</div></span>
+        </div>
+
+        <div (onDrop)="onHeartCardDrop($event)" droppable class="deck-card-pool col-lg-12 col-md-12 col-sm-12 col-12 row">
+            <span class="deck_cards">
+               <div><b>Heart</b></div> <div>{{item}}</div></span>
+            <span [dragData]="card"  class="deck_cards" draggable [dragClass]="'drag-target-border'" *ngFor="let card of droppedHeartItems">
+                <div>{{card.card_type}}</div><div>{{card.card_number}}</div></span>
+        </div>
+
+        <div (onDrop)="onSpadeCardDrop($event)" droppable class="deck-card-pool col-lg-12 col-md-12 col-sm-12 col-12 row">
+            <span class="deck_cards">
+               <div><b>Spade</b></div> <div>{{item}}</div></span>
+            <span [dragData]="card"  class="deck_cards" draggable [dragClass]="'drag-target-border'" *ngFor="let card of droppedSpadeItems">
+                <div>{{card.card_type}}</div><div>{{card.card_number}}</div></span>
+        </div>
+
+        <div (onDrop)="onDiamondCardDrop($event)" droppable class="deck-card-pool col-lg-12 col-md-12 col-sm-12 col-12 row">
+            <span class="deck_cards">
+               <div><b>Diamond</b></div> <div>{{item}}</div></span>
+            <span [dragData]="card"  class="deck_cards" draggable [dragClass]="'drag-target-border'" *ngFor="let card of droppedDiamondItems">
+               <div>{{card.card_type}}</div><div>{{card.card_number}}</div></span>
+        </div>
+
+        <div (onDrop)="onClubCardDrop($event)" draggable droppable class="deck-card-pool col-lg-12 col-md-12 col-sm-12 col-12 row">
+            <span class="deck_cards">
+               <div><b>Club</b></div> <div>{{item}}</div></span>
+            <span [dragData]="card"  class="deck_cards" draggable [dragClass]="'drag-target-border'" *ngFor="let card of droppedClubItems">
+                <div>{{card.card_type}}</div><div>{{card.card_number}}</div></span>
+        </div>
+    </div>
+</div>
